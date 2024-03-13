@@ -95,15 +95,16 @@ void printTree(POINTER root) {
 }
 
 int main() {
-    POINTER pointer = initTree(8);
+    POINTER pointer = initTree(10);
 
-    for (int i = 0; i < 5; i++) {
-        insertInTree(pointer, i + 7, 8);
-        int j = 0;
-        for (; j < 2; j++){
-            insertInTree(pointer->nextChild, j + 5, i+7);
-        }
-    }
+    insertInTree(pointer, 15, 10);
+    insertInTree(pointer, 11, 15);
+    insertInTree(pointer, 8, 15);
+    insertInTree(pointer, 2, 8);
+    insertInTree(pointer, 20, 10);
+    insertInTree(pointer, 12, 20);
+    insertInTree(pointer, 13, 20);
+    insertInTree(pointer, 1, 13);
 
     printTree(pointer);
 
