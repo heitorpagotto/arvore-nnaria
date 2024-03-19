@@ -1,20 +1,20 @@
 #include <iostream>
-#include <cstdlib>
 
 using namespace std;
 
-typedef struct knot {
+struct KNOT {
     int key;
-    struct knot *nextChild;
-    struct knot *nextSibling;
-}
-KNOT;
+    KNOT* nextChild{};
+    KNOT* nextSibling{};
+
+    explicit KNOT(int key) : key(key), nextChild(nullptr), nextSibling(nullptr) {}
+};
 typedef KNOT *POINTER;
 
 POINTER createKnot(int key) {
     // Aloca memória do tamanho da struct KNOT
     // PODE CAUSAR UM LEAK DE MEMÓRIA
-    auto newKnot = (POINTER)malloc(sizeof(KNOT));
+    auto newKnot = new KNOT(key);
 
     // Atribuí o valores da chave e do filho e irmão
     newKnot->key = key;
